@@ -31,9 +31,9 @@ function triangle(value1, type1, value2, type2) {
     return "failed";
   }
 
-  if ((type1.includes("angle") && (value1 <= 0 || value1 >= 90)) ||
-      (type2.includes("angle") && (value2 <= 0 || value2 >= 90))) {
-    console.log("Некоректні дані: кут має бути гострим (від 0 до 90)");
+  if ((type1.includes("angle") && (value1 < 0.001 || value1 > 89.999)) ||
+      (type2.includes("angle") && (value2 < 0.001 || value2 > 89.999))) {
+    console.log("Некоректні дані: кут занадто малий або занадто великий (межі 0.001 - 89.999)");
     return "failed";
   }
   
@@ -44,6 +44,10 @@ function triangle(value1, type1, value2, type2) {
   case "leg|leg":
     a = value1;
     b = value2;
+    if (a / b > 1000 || b / a > 1000) {
+      console.log("Помилка: співвідношення сторін перевищує 1000. Трикутник занадто тонкий.");
+      return "failed";
+    }
     c = Math.sqrt(a * a + b * b);
     alpha = Math.asin(a / c) * 180 / Math.PI;
     beta = 90 - alpha;
@@ -54,11 +58,24 @@ function triangle(value1, type1, value2, type2) {
     const leg = (type1 === "leg") ? value1 : value2;
     const hyp = (type1 === "hypotenuse") ? value1 : value2;
 
-    if (leg >= hyp) return "Некоректні дані: катет має бути менший за гіпотенузу.";
+    if (leg >= hyp) {
+        console.log("Некоректні дані: катет має бути менший за гіпотенузу.");
+        return "failed";
+    }
+    
+    if (hyp / leg > 1000) {
+      console.log("Помилка: катет занадто малий відносно гіпотенузи (співвідношення > 1000).");
+      return "failed";
+    }
 
     a = leg;
     c = hyp;
     b = Math.sqrt(c * c - a * a);
+
+    if (c / b > 1000) {
+      console.log("Помилка: катет занадто близький до гіпотенузи, інший катет виходить за межі точності.");
+      return "failed";
+    }
 
     alpha = Math.asin(a / c) * 180 / Math.PI;
     beta = 90 - alpha;
@@ -67,18 +84,23 @@ function triangle(value1, type1, value2, type2) {
 
   case "leg|adjacent angle":
   case "adjacent angle|leg": {
-  const leg = (type1 === "leg") ? value1 : value2;
-  const angle = (type1 === "adjacent angle") ? value1 : value2;
+    const leg = (type1 === "leg") ? value1 : value2;
+    const angle = (type1 === "adjacent angle") ? value1 : value2;
 
-  b = leg;
-  c = b / Math.cos(angle * Math.PI / 180);
-  a = b * Math.tan(angle * Math.PI / 180);
+    b = leg;
+    let tanVal = Math.tan(angle * Math.PI / 180);
+    if (tanVal > 1000 || tanVal < 1/1000) {
+        console.log("Помилка: такий кут призведе до недопустимого співвідношення сторін.");
+        return "failed";
+    }
 
-  alpha = angle;
-  beta = 90 - alpha;
-  break;
+    c = b / Math.cos(angle * Math.PI / 180);
+    a = b * tanVal;
+
+    alpha = angle;
+    beta = 90 - alpha;
+    break;
   }
-
 
   case "leg|opposite angle":
   case "opposite angle|leg": {
@@ -86,8 +108,14 @@ function triangle(value1, type1, value2, type2) {
     const angle = (type1 === "opposite angle") ? value1 : value2;
 
     a = leg;
+    let tanVal = Math.tan(angle * Math.PI / 180);
+    if (tanVal > 1000 || tanVal < 1/1000) {
+        console.log("Помилка: такий кут призведе до недопустимого співвідношення сторін.");
+        return "failed";
+    }
+
     c = a / Math.sin(angle * Math.PI / 180);
-    b = a / Math.tan(angle * Math.PI / 180);
+    b = a / tanVal;
 
     alpha = angle;
     beta = 90 - alpha;
@@ -105,18 +133,29 @@ function triangle(value1, type1, value2, type2) {
 
     a = c * Math.sin(angle * Math.PI / 180);
     b = c * Math.cos(angle * Math.PI / 180);
+    
+    if (a / b > 1000 || b / a > 1000) {
+        console.log("Помилка: отримане співвідношення сторін перевищує 1000.");
+        return "failed";
+    }
     break;
   }
 
   default:
     console.log("Помилка: несумісна пара типів. Перечитай інструкцію на початку сценарію.");
     return "failed";
-}
-    console.log("c = " + c);
-    console.log("a = " + a);
-    console.log("b = " + b);
-    console.log("alpha = " + alpha);
-    console.log("beta = " + beta);
+  }
+
+  if (alpha < 0.001 || beta < 0.001) {
+    console.log("Помилка: один з кутів вийшов меншим за 0.001 градуса.");
+    return "failed";
+  }
+
+  console.log("c = " + c);
+  console.log("a = " + a);
+  console.log("b = " + b);
+  console.log("alpha = " + alpha);
+  console.log("beta = " + beta);
 
   return "success";
 }
