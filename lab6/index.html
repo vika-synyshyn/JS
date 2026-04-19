@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lights Out</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Lights Out</h1>
+
+    <div class="info-panel">
+      <p>Moves: <span id="moves">0</span></p>
+      <p>Timer: <span id="timer">0</span> s</p>
+      <p>Best target: <span id="target">0</span></p>
+    </div>
+
+    <div class="buttons">
+      <button id="new-game-btn">New Game</button>
+      <button id="restart-btn">Restart</button>
+    </div>
+
+    <div id="board" class="board"></div>
+
+    <p id="message" class="message"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
