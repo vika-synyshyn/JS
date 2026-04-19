@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.container {
+  margin-top: 60px;
+}
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 44px;
+}
+
+.info-panel {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.info-panel p {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.buttons {
+  margin-bottom: 25px;
+}
+
+button {
+  padding: 10px 18px;
+  margin: 0 8px;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  background: #475569;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #facc15;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 80px);
+  gap: 8px;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.cell.on {
+  background: #facc15;
+}
+
+.cell.off {
+  background: #475569;
+}
+
+.message {
+  font-size: 22px;
+  min-height: 30px;
+  margin-top: 10px;
+}
