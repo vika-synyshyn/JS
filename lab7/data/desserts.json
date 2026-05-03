@@ -1,0 +1,37 @@
+{
+    "categoryName": "Десерти",
+    "items": [
+        {
+            "id": 1,
+            "name": "Чізкейк",
+            "shortname": "cheesecake",
+            "description": "Ніжний сирний десерт з м’якою текстурою.",
+            "price": "85 грн",
+            "image": "images/cheesecake.png"
+        },
+        {
+            "id": 2,
+            "name": "Тірамісу",
+            "shortname": "tiramisu",
+            "description": "Популярний італійський десерт з кавовим смаком.",
+            "price": "90 грн",
+            "image": "images/tiramisu.png"
+        },
+        {
+            "id": 3,
+            "name": "Млинці з шоколадом",
+            "shortname": "pancakes-chocolate",
+            "description": "Тонкі млинці з шоколадною начинкою.",
+            "price": "75 грн",
+            "image": "images/pancakes.png"
+        },
+        {
+            "id": 4,
+            "name": "Морозиво",
+            "shortname": "ice-cream",
+            "description": "Класичне ванільне морозиво з топінгом.",
+            "price": "60 грн",
+            "image": "images/icecream.png"
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "categoryName": "Напої",
+    "items": [
+        {
+            "id": 1,
+            "name": "Капучино",
+            "shortname": "cappuccino",
+            "description": "Кавовий напій з молоком та ніжною пінкою.",
+            "price": "65 грн",
+            "image": "images/cappuccino.png"
+        },
+        {
+            "id": 2,
+            "name": "Лате",
+            "shortname": "latte",
+            "description": "М’який кавовий напій з великою кількістю молока.",
+            "price": "70 грн",
+            "image": "images/latte.png"
+        },
+        {
+            "id": 3,
+            "name": "Чай чорний",
+            "shortname": "black-tea",
+            "description": "Гарячий чорний чай у класичному виконанні.",
+            "price": "40 грн",
+            "image": "images/tea.png"
+        },
+        {
+            "id": 4,
+            "name": "Лимонад",
+            "shortname": "lemonade",
+            "description": "Освіжаючий напій з лимоном та льодом.",
+            "price": "55 грн",
+            "image": "images/lemonade.png"
+        }
+    ]
+}

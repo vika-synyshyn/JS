@@ -1,0 +1,37 @@
+{
+    "categoryName": "Основні страви",
+    "items": [
+        {
+            "id": 1,
+            "name": "Цезар з куркою",
+            "shortname": "caesar-salad",
+            "description": "Салат з куркою, сиром, сухариками та соусом.",
+            "price": "120 грн",
+            "image": "images/caesar.png"
+        },
+        {
+            "id": 2,
+            "name": "Паста карбонара",
+            "shortname": "carbonara",
+            "description": "Паста у вершковому соусі з беконом та сиром.",
+            "price": "145 грн",
+            "image": "images/pasta.png"
+        },
+        {
+            "id": 3,
+            "name": "Суп дня",
+            "shortname": "soup-day",
+            "description": "Свіжоприготований суп залежно від денного меню.",
+            "price": "85 грн",
+            "image": "images/soup.png"
+        },
+        {
+            "id": 4,
+            "name": "Сендвіч з шинкою",
+            "shortname": "ham-sandwich",
+            "description": "Гарячий сендвіч з шинкою, сиром та овочами.",
+            "price": "95 грн",
+            "image": "images/sandwich.png"
+        }
+    ]
+}
