@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота №8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h2>Лабораторна №8</h2>
+
+    <button id="burger">☰</button>
+
+    <nav id="menu">
+        <a href="#">Головна</a>
+        <a href="#">Зображення</a>
+        <a href="#">Деталі</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Візуальні ефекти JavaScript</h1>
+    <p>На цій сторінці реалізовано меню, карусель та адаптивні зображення.</p>
+
+    <section>
+        <h2>Карусель</h2>
+
+        <div class="carousel">
+            <button id="prev">‹</button>
+
+            <img id="slide" src="https://placehold.co/800x350?text=Слайд+1" alt="Слайд">
+
+            <button id="next">›</button>
+        </div>
+
+        <div class="dots">
+            <button class="dot active" data-number="0"></button>
+            <button class="dot" data-number="1"></button>
+            <button class="dot" data-number="2"></button>
+        </div>
+    </section>
+
+    <section class="large">
+        <h2>Зображення для великих екранів</h2>
+        <img src="https://placehold.co/250x160?text=Large+1" alt="">
+        <img src="https://placehold.co/250x160?text=Large+2" alt="">
+    </section>
+
+    <section class="medium">
+        <h2>Зображення для середніх екранів</h2>
+        <img src="https://placehold.co/250x160?text=Medium+1" alt="">
+        <img src="https://placehold.co/250x160?text=Medium+2" alt="">
+    </section>
+</main>
+
+<footer>
+    <p>Виконала студентка групи КН-32 Синишин Вікторія</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
